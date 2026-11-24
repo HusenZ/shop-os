@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.vite/
+apps/api/.venv/
+apps/api/*.db
+apps/api/*.db-*
+apps/api/data/
+__pycache__/
+.pytest_cache/
+.DS_Store
+test-results/
+playwright-report/

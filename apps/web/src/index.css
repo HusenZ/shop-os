@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+  --color-brand-50: #effaf8;
+  --color-brand-100: #d6f2ec;
+  --color-brand-200: #a9e3d8;
+  --color-brand-300: #70ccbd;
+  --color-brand-400: #3fae9f;
+  --color-brand-500: #219284;
+  --color-brand-600: #16766c;
+  --color-brand-700: #0f5f58;
+  --color-brand-800: #0d4b46;
+  --color-brand-900: #0b3d39;
+}
+
+:root {
+  color-scheme: light;
+}
+:root.dark {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--color-stone-100);
+  color: var(--color-stone-900);
+  -webkit-tap-highlight-color: transparent;
+}
+.dark body {
+  background: var(--color-stone-950);
+  color: var(--color-stone-100);
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Printing: only the receipt is printed. */
+@media print {
+  @page {
+    margin: 4mm;
+  }
+  body * {
+    visibility: hidden !important;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible !important;
+  }
+  .print-area {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    color: #000 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+  .print-area.w-thermal {
+    width: 72mm;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

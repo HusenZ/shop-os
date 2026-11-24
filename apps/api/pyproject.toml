@@ -1,0 +1,32 @@
+[project]
+name = "shopos-hub"
+version = "0.1.0"
+description = "ShopOS sync hub: relays, verifies and stores device operation logs and builds report projections."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "sqlalchemy>=2.0.36",
+    "pydantic>=2.9",
+    "pydantic-settings>=2.7",
+    "pyjwt>=2.9",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "httpx>=0.27",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+filterwarnings = [
+    # Starlette asks for httpx2; the brief pins httpx for TestClient.
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated",
+]

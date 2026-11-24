@@ -1,0 +1,20 @@
+{
+  "name": "shopos",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm -w @shopos/web run dev",
+    "build": "npm -w @shopos/web run build",
+    "preview": "npm -w @shopos/web run preview",
+    "hub": "uv run --directory apps/api uvicorn app.main:app --port 8000",
+    "test": "npm -w @shopos/core run test",
+    "test:api": "cd apps/api && uv run pytest -q",
+    "test:e2e": "cd packages/core && SHOPOS_HUB_URL=${SHOPOS_HUB_URL:-http://localhost:8000} npx vitest run test/hub.e2e.test.ts",
+    "typecheck": "npm -w @shopos/core run typecheck && npm -w @shopos/web run typecheck"
+  }
+}
