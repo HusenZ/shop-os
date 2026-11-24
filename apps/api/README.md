@@ -113,10 +113,3 @@ app/
   routers/       auth, devices, sync, backups, reports
 tests/           pytest + TestClient; helpers.py builds ops like the TS client
 ```
-
-## Local test account (development only)
-
-The browser walkthrough during development created this account on the local hub (`apps/api/data/hub.db`, git-ignored). It exists only on this machine; delete `apps/api/data/` to start fresh.
-
-- Email: `owner@demo-kirana.example`
-- Password: `demo-hub-pass-2026`
